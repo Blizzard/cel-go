@@ -47,7 +47,7 @@ func newTypeDescription(typeName string, desc protoreflect.MessageDescriptor, ex
 	fields := desc.Fields()
 	for i := 0; i < fields.Len(); i++ {
 		f := fields.Get(i)
-		fieldMap[string(f.Name())] = newFieldDescription(f)
+		fieldMap[string(f.JSONName())] = newFieldDescription(f)
 	}
 	return &TypeDescription{
 		typeName:    typeName,
